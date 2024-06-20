@@ -11,7 +11,17 @@
     />
   </head>
   <body>
-    <h1>Random Card:</h1>
+    <h1>Random Card Generator</h1>
+    <div id="inputContainer">
+      <label for="widthInput">Width:</label>
+      <input type="text" id="widthInput" placeholder="Enter width" />
+      <label for="heightInput">Height:</label>
+      <input type="text" id="heightInput" placeholder="Enter height" />
+      <button onclick="generateCard()">Generate Card</button>
+      <button onclick="startAutoGenerate()">Start Auto Generate</button>
+      <button onclick="stopAutoGenerate()">Stop Auto Generate</button>
+    </div>
+
     <div id="cardContainer">
       <div id="card">
         <div id="cardIconTop" class="cardIcon top"></div>
@@ -19,8 +29,6 @@
         <div id="cardIconBottom" class="cardIcon bottom"></div>
       </div>
     </div>
-    <button onclick="generateRandomCard()">Refresh Card</button>
-
     <script src="app.js"></script>
   </body>
 </html>

@@ -7,7 +7,6 @@ import "./assets/img/4geeks.ico";
 window.onload = function() {
   generateRandomCard();
 };
-
 const suits = ["hearts", "spades", "clubs", "diamonds"];
 const values = [
   "2",
@@ -42,6 +41,27 @@ function generateRandomCard() {
   card.className = `card ${randomSuit}`;
 }
 
+function generateCard() {
+  const width = document.getElementById("widthInput").value || "150px";
+  const height = document.getElementById("heightInput").value || "200px";
+
+  // Set card dimensions
+  const card = document.getElementById("card");
+  card.style.width = width;
+  card.style.height = height;
+
+  generateRandomCard();
+}
+let autoGenerateInterval = null;
+
+function startAutoGenerate() {
+  autoGenerateInterval = setInterval(generateRandomCard, 10000); // 10 seconds interval
+}
+
+function stopAutoGenerate() {
+  clearInterval(autoGenerateInterval);
+}
+
 function getSuitSymbol(suit) {
   switch (suit) {
     case "hearts":
@@ -52,5 +72,7 @@ function getSuitSymbol(suit) {
       return '<i class="fas fa-club"></i>';
     case "diamonds":
       return '<i class="fas fa-diamond"></i>';
+    default:
+      return "";
   }
 }
